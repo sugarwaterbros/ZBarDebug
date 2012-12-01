@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg932\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red28\green0\blue207;}
+\paperw12240\paperh15840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 ZBarSDK with ARC enabled application crash! source of crash and avoiding crash.\
+
+\b0 \
+
+\b Problem
+\b0 \
+	ZBarSDK 1.3.1 linked with ARC enabled application cause over release\
+	(reference count -1) in ZBarReaderViewImpl_Simulator.m: - (void)onStopVideo\
+	as screenshot.\
+\
+
+\b How to see the problem\
+
+\b0 	1. Download Xcode project\
+	2. Choose Scheme "ZBarDebugArc>iPhone 5.1 Simulator"\
+	3. Execute Xcode menu "Product>Profile" to run on Instruments\
+	4. Select "Zombie" on Instruments startup dialog then click Profile button\
+	5. Application start on Simulator titled "ZBarDebug ARC" and 4 disclosure rows\
+	6. Click "Sample 3", ZBarReaderView  will appear (do nothing)\
+	7. Click back button on Navigation bar\
+	8. Milliseconds later, "Zombie Messaged" will happen\
+\
+
+\b The Source of Problem
+\b0 \
+	ARC application release object much earlier than Non-ARC application.\
+	On my case the source of problem may be:\
+\
+	
+\f1\fs22 ZBarReaderViewImpl_Simulator.m: line 134-144\
+\pard\tx560\pardeftab560\ql\qnatural\pardirnatural
+\cf0 \CocoaLigature0 		134: - (\cf2 void\cf0 ) stop\
+		135: \{\
+		136:     \cf2 if\cf0 (!started)\
+		137:         \cf2 return\cf0 ;\
+		138:     [\cf2 super\cf0  stop];\
+		139:     running = \cf2 NO\cf0 ;\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \CocoaLigature1 		140:\
+\pard\tx560\pardeftab560\ql\qnatural\pardirnatural
+\cf0 \CocoaLigature0 	    \CocoaLigature1 141:     \CocoaLigature0 [\cf2 self\cf0  performSelector: \cf2 @selector\cf0 (onVideoStop)\
+		142:                withObject: \cf2 nil\cf0 \
+		143:                afterDelay: \cf3 0.5\cf0 ];\
+		144: \}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+	After 0.5 delay, the ViewController has been released in ARC application ?\
+	May the other lines use afterDelay cause crash ?\
+	Why Non-ARC application never crash ?\
+	I don't know the reason why the selector must be delayed,\
+	but it may keep ARC application away from ZBarSDK.\
+\
+
+\b Avoid the problem
+\b0 \
+	Keep viewController which manage the view including ZBarReaderView in some where\
+	after disposing the view. My code is ZBarViewController.m line 152.\
+
+\b \
+ZBarSDK
+\b0  & 
+\b Tools
+\b0 \
+	ZBarSDK 1.3.1\
+	MacOS 10.6.8\
+	Xcode 4.2 build 4C199\
+\
+
+\b Application
+\b0 \
+	Xcode project include 4 ZBar samples\
+	Sample 1  use ZBarReaderViewController, runs fine on both ARC and non-ARC\
+	Sample 2  embedded ZBarReaderView in xib with some other parts, crash on ARC\
+	Sample 3  ONLY ZBarReaderView in xib, still crash on ARC\
+	Sample 4  uses Sample 2 class and xib but keep viewController, NOT crash on ARC\
+\
+
+\b Project Targets\
+
+\b0 	ZBarDebugNoARC -- application without ARC, runs fine!\
+		Build Settings\
+			Apple LLVM Compiler 3.0 - Language\
+				Objective-C Automatic Reference Counting NO\
+			Apple LLVM Compiler 3.0 - Preprocessing\
+				NOARC=1\
+\
+	ZBarDebugARC -- application with ARC, Sample 2&3 will crash\
+		Build Settings\
+			Apple LLVM Compiler 3.0 - Language\
+				Objective-C Automatic Reference Counting YES\
+}

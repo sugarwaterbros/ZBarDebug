@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>ZBarDebugARC.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>ZBarDebugNoARC.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>435883A21669093B00B2F0AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>435883C31669099F00B2F0AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>435883DB166909C700B2F0AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4358844E16691CD000B2F0AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4358846616691CE900B2F0AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
