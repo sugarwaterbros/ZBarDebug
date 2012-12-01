@@ -5,7 +5,7 @@ ZBarSDK 1.3.1 linked with ARC enabled application cause over release
 (reference count -1) in `ZBarReaderViewImpl_Simulator.m: - (void)onStopVideo`
 as screenshot.
 
-![Zombie-Messaged-Screenshot](https://raw.github.com/sugarwaterbros/repo_1/master/Zombie-Messaged.png)
+![Zombie-Messaged-Screenshot](https://raw.github.com/sugarwaterbros/ZBarDebug/master/Zombie-Messaged.png)
 
 
 ## How to see the problem
