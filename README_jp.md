@@ -5,7 +5,7 @@ ARCを有効にしたアプリケーションにZBarSDK 1.3.1をリンクする�
 `ZBarReaderViewImpl_Simulator.m: - (void)onStopVideo`で
 スクリーンショットの様にリリース超過（参照カウントが-1）が発生する。
 
-![Zombie-Messaged-Screenshot](https://raw.github.com/sugarwaterbros/repo_1/master/Zombie-Messaged.png)
+![Zombie-Messaged-Screenshot](https://raw.github.com/sugarwaterbros/ZBarDebug/master/Zombie-Messaged.png)
 
 ## 再現方法
 1. Xcodeプロジェクトをダウンロードする
