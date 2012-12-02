@@ -59,6 +59,14 @@
 					 [NSNumber numberWithBool:YES],	KEY_KEEPVC,
 					 nil],
 					@"Sample 4",
+
+					/* keepvc=NO but avoiding in viewWillDisappear */
+					[NSMutableDictionary dictionaryWithObjectsAndKeys:
+					 @"Sample5ViewController", KEY_CLASSNAME,
+					 @"Avoiding in pushed viewController", KEY_COMMENT,
+					 [NSNumber numberWithBool:NO], KEY_KEEPVC,
+					 nil],
+					@"Sample 5",
 					
 					nil];
 #ifdef	NOARC

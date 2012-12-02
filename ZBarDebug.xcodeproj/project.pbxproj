@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434CAF7A166BBF8700B58FFC /* Sample5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434CAF78166BBF8700B58FFC /* Sample5ViewController.m */; };
+		434CAF7B166BBF8700B58FFC /* Sample5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434CAF79166BBF8700B58FFC /* Sample5ViewController.xib */; };
+		434CAF7D166BC5C800B58FFC /* Sample5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 434CAF78166BBF8700B58FFC /* Sample5ViewController.m */; };
+		434CAF7E166BC5D000B58FFC /* Sample5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 434CAF79166BBF8700B58FFC /* Sample5ViewController.xib */; };
 		4358845116691CD000B2F0AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435883A71669093B00B2F0AA /* UIKit.framework */; };
 		4358845216691CD000B2F0AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435883A91669093B00B2F0AA /* Foundation.framework */; };
 		4358845316691CD000B2F0AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435883AB1669093B00B2F0AA /* CoreGraphics.framework */; };
@@ -50,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		434CAF77166BBF8700B58FFC /* Sample5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sample5ViewController.h; sourceTree = "<group>"; };
+		434CAF78166BBF8700B58FFC /* Sample5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sample5ViewController.m; sourceTree = "<group>"; };
+		434CAF79166BBF8700B58FFC /* Sample5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sample5ViewController.xib; sourceTree = "<group>"; };
 		435883A71669093B00B2F0AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		435883A91669093B00B2F0AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		435883AB1669093B00B2F0AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +155,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434CAF76166BBF8700B58FFC /* Sample 5 */ = {
+			isa = PBXGroup;
+			children = (
+				434CAF77166BBF8700B58FFC /* Sample5ViewController.h */,
+				434CAF78166BBF8700B58FFC /* Sample5ViewController.m */,
+				434CAF79166BBF8700B58FFC /* Sample5ViewController.xib */,
+			);
+			path = "Sample 5";
+			sourceTree = "<group>";
+		};
 		435883981669093B00B2F0AA = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +215,7 @@
 				4358843116690DC500B2F0AA /* Sample 1 */,
 				4358843516690DC500B2F0AA /* Sample 2 */,
 				4358843916690DC500B2F0AA /* Sample 3 */,
+				434CAF76166BBF8700B58FFC /* Sample 5 */,
 			);
 			path = "Common Source";
 			sourceTree = "<group>";
@@ -408,6 +426,7 @@
 				435884941669220A00B2F0AA /* Sample1ViewController.xib in Resources */,
 				435884961669221300B2F0AA /* Sample2ViewController.xib in Resources */,
 				435884991669221E00B2F0AA /* Sample3ViewController.xib in Resources */,
+				434CAF7E166BC5D000B58FFC /* Sample5ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +439,7 @@
 				435884951669220B00B2F0AA /* Sample1ViewController.xib in Resources */,
 				435884971669221400B2F0AA /* Sample2ViewController.xib in Resources */,
 				435884981669221D00B2F0AA /* Sample3ViewController.xib in Resources */,
+				434CAF7B166BBF8700B58FFC /* Sample5ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +456,7 @@
 				4358848F166921CC00B2F0AA /* Sample3ViewController.m in Sources */,
 				43588490166921D300B2F0AA /* Sample2ViewController.m in Sources */,
 				43588492166921DC00B2F0AA /* Sample1ViewController.m in Sources */,
+				434CAF7D166BC5C800B58FFC /* Sample5ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +470,7 @@
 				4358848E166921CB00B2F0AA /* Sample3ViewController.m in Sources */,
 				43588491166921D400B2F0AA /* Sample2ViewController.m in Sources */,
 				43588493166921DC00B2F0AA /* Sample1ViewController.m in Sources */,
+				434CAF7A166BBF8700B58FFC /* Sample5ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,11 +1,13 @@
 # ZBarSDKをARCを有効にしたアプリケーションにリンクするとクラッシュ、原因の推測と回避策
 
+
 ## 問題点
 ARCを有効にしたアプリケーションにZBarSDK 1.3.1をリンクすると
 `ZBarReaderViewImpl_Simulator.m: - (void)onStopVideo`で
 スクリーンショットの様にリリース超過（参照カウントが-1）が発生する。
 
 ![Zombie-Messaged-Screenshot](https://raw.github.com/sugarwaterbros/ZBarDebug/master/Zombie-Messaged.png)
+
 
 ## 再現方法
 1. Xcodeプロジェクトをダウンロードする
@@ -17,6 +19,7 @@ ARCを有効にしたアプリケーションにZBarSDK 1.3.1をリンクする�
 6. "Sample 3"をクリック、ZBarReaderViewを含むViewが表示される（何もしない）
 7. ナビゲーションバーのバックボタンをクリック
 8. 少しの時間の後、"Zombie Messaged"が発生する
+
 
 ## 原因（推察）
 ARCを有効にしたアプリケーションでは、ARC無しのアプリケーションと比べて、
@@ -43,21 +46,28 @@ ARCが有効なアプリケーションでは、0.5秒には既にViewController
 ARC無しのアプリケーションは、なぜクラッシュしないのだろう？
 selectorを遅延実行する理由は知らないが、遅延実行がZBarSDKをARCアプリケーションから使えなくするかもしれない。
 
+
 ## 回避方法
 ZBarReaderViewを含むViewのviewControllerをViewが消去された後もどこかに保存しておく。実際のコードは`ZBarViewController.m`の152行目あたり。
+
+
+またはviewControllerの参照数がゼロになる時にZBarReaderViewのreaderDelegateをnilにする。実際のコードは`Sample5ViewController.m`の172行目あたり。
+
 
 ## ZBarSDK & Tools
 * ZBarSDK 1.3.1
 * MacOS X 10.6.8
 * Xcode 4.2 build 4C199
 
+
 ## アプリケーションプログラム
-4通りのサンプルを実装
+5通りのサンプルを実装
 
 * Sample 1: ZBarReaderViewControllerを使用、ARCでもnon-ARCでも正常動作
 * Sample 2: xibでZBarReaderViewと他の部品を含むViewを作る, ARCでクラッシュ
 * Sample 3: ZBarReaderViewだけのxib, ARCでクラッシュ
 * Sample 4: Sample 2のクラスとxibを使用、viewControllerを保存、ARCで正常動作
+* Sample 5: viewControllerの参照数がゼロになる時、readerDelegateをnilに、ARCで正常動作
 
 
 ## Project Targets

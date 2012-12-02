@@ -62,6 +62,11 @@
 \b0 \
 	Keep viewController which manage the view including ZBarReaderView in some where\
 	after disposing the view. My code is ZBarViewController.m line 152.\
+	Or set nil to ZBarReaderView readerDelegate when the viewController become unretained.\
+	My code is Sample5ViewController.m line 172.
+\f1\fs22 \CocoaLigature0 \
+
+\f0\fs24 \CocoaLigature1  \
 
 \b \
 ZBarSDK
@@ -80,6 +85,7 @@ ZBarSDK
 	Sample 2  embedded ZBarReaderView in xib with some other parts, crash on ARC\
 	Sample 3  ONLY ZBarReaderView in xib, still crash on ARC\
 	Sample 4  uses Sample 2 class and xib but keep viewController, NOT crash on ARC\
+	Sample 5 set nil to readerDelegate when the viewController become unretained, NOT crash under ARC\
 \
 
 \b Project Targets\
